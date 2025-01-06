@@ -1,43 +1,37 @@
 "use client";
 
+import SpotifyButton from "@/components/common/SpotifyButton";
+import LoginButton from "@/components/main/LoginButton";
 import SignUpButton from "@/components/main/SignUpButton";
-import StartButton from "@/components/main/StartButton";
 import { useRouter } from "next/navigation";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-const GlobalStyles = createGlobalStyle`
-  body {
-    margin: 0 auto;
-  }
-`;
-
-export default function Home() {
+const LoginPage = () => {
   const router = useRouter();
 
   return (
-    <>
-      <GlobalStyles />
-      <StyledMainPage>
-        <Wrapper>
-          <StyledStart>시작하기</StyledStart>
-          <StyledWelcome>
-            <GreenText>뮤즈커넥트</GreenText>에 오신 걸 환영합니다.
-          </StyledWelcome>
-          <StartButton
-            onClick={() => {
-              router.push("/login");
-            }}
-          />
-        </Wrapper>
-        <SignUpButton
+    <StyledMainPage>
+      <Wrapper>
+        <StyledStart>로그인</StyledStart>
+        <StyledWelcome>
+          <GreenText>Sportify 계정</GreenText>으로 로그인해 주세요.
+        </StyledWelcome>
+        <SpotifyButton
           onClick={() => {
-            router.push("/signup");
+            router.push("/main");
           }}
         />
-      </StyledMainPage>
-    </>
+      </Wrapper>
+      <SignUpButton
+        onClick={() => {
+          router.push("/signup");
+        }}
+      />
+    </StyledMainPage>
   );
-}
+};
+
+export default LoginPage;
 
 const StyledMainPage = styled.div`
   display: flex;
