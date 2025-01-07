@@ -23,7 +23,7 @@ const StyledHeaderItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 156px;
+  width: 115px;
   height: 52px;
   padding: 18px;
   border-right: ${({ isActive }) => (isActive ? "4px solid #0da573" : "none")};
