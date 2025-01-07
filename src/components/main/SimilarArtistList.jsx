@@ -1,38 +1,37 @@
-import songData from "@/data/song";
+import artistData from "@/data/artist";
 import Image from "next/image";
 import styled from "styled-components";
-import SimilarSongItem from "./SimilarSongItem";
+import SimilarArtistItem from "./SimilarArtistItem";
 
-const SimilarSongList = () => {
+const SimilarArtistList = () => {
   return (
-    <StyledSimilarSongList>
+    <StyledSimilarArtistList>
       <Wrapper>
-        <Title>Right Now와 비슷한 노래</Title>
+        <Title>NewJeans와 비슷한 아티스트</Title>
         <Image src={"IconArrow.svg"} width={24} height={24} alt="arrow" />
       </Wrapper>
       <SongList>
-        {songData.map((song) => (
-          <SimilarSongItem
-            key={song.id}
-            imgSrc={song.title + ".svg"}
-            title={song.title}
-            artist={song.artist}
+        {artistData.map((artist) => (
+          <SimilarArtistItem
+            key={artist.id}
+            imgSrc={artist.name + ".svg"}
+            name={artist.name}
           />
         ))}
       </SongList>
-    </StyledSimilarSongList>
+    </StyledSimilarArtistList>
   );
 };
 
-export default SimilarSongList;
+export default SimilarArtistList;
 
-const StyledSimilarSongList = styled.div`
+const StyledSimilarArtistList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 1136px;
   height: 302px;
-  margin-bottom: 46px;
+  margin: 0 auto;
 `;
 
 const Title = styled.div`
@@ -45,7 +44,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 4px;
+  gap: 17px;
   margin-bottom: 8px;
 `;
 
