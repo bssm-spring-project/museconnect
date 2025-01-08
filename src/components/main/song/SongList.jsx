@@ -1,38 +1,51 @@
 import songData from "@/data/song";
 import Image from "next/image";
 import styled from "styled-components";
-import SimilarSongItem from "./SimilarSongItem";
+import SongItem from "./SongItem";
 import { useRouter } from "next/navigation";
 
-const SimilarSongList = ({ onClick }) => {
+const SongList = ({ onClick }) => {
   const router = useRouter();
 
   return (
-    <StyledSimilarSongList>
+    <StyledSongList>
       <Wrapper onClick={onClick}>
+        <Image src={"/arrow2.svg"} width={24} height={24} alt="arrow" />
         <Title>Right Now와 비슷한 노래</Title>
-        <Image src={"IconArrow.svg"} width={24} height={24} alt="arrow" />
       </Wrapper>
-      <SongList>
+      <SongListWrapper>
         {songData.map((song) => (
-          <SimilarSongItem
+          <SongItem
             key={song.id}
             onClick={() => {
               router.push("/main/song/" + song.id);
             }}
-            imgSrc={song.title + ".svg"}
+            imgSrc={"/" + song.title + ".svg"}
             title={song.title}
             artist={song.artist}
           />
         ))}
-      </SongList>
-    </StyledSimilarSongList>
+      </SongListWrapper>
+      <SongListWrapper>
+        {songData.map((song) => (
+          <SongItem
+            key={song.id}
+            onClick={() => {
+              router.push("/main/song/" + song.id);
+            }}
+            imgSrc={"/" + song.title + ".svg"}
+            title={song.title}
+            artist={song.artist}
+          />
+        ))}
+      </SongListWrapper>
+    </StyledSongList>
   );
 };
 
-export default SimilarSongList;
+export default SongList;
 
-const StyledSimilarSongList = styled.div`
+const StyledSongList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -56,8 +69,9 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
-const SongList = styled.div`
+const SongListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  margin-bottom: 36px;
 `;

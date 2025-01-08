@@ -12,18 +12,18 @@ const Header = () => {
     <StyledHeader>
       <HeaderItem
         title={"홈"}
-        icon={"home-default.svg"}
-        activeIcon={"home-active.svg"}
-        isActive={pathname === "/main"}
+        icon={"/home-default.svg"}
+        activeIcon={"/home-active.svg"}
+        isActive={pathname.startsWith("/main")}
         onClick={() => {
           router.push("/main");
         }}
       />
       <HeaderItem
         title={"커뮤니티"}
-        icon={"community-default.svg"}
-        activeIcon={"community-active.svg"}
-        isActive={pathname === "/community"}
+        icon={"/community-default.svg"}
+        activeIcon={"/community-active.svg"}
+        isActive={pathname.startsWith("/community")}
         onClick={() => {
           router.push("/community");
         }}

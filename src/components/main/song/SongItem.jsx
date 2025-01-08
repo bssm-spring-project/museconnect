@@ -1,24 +1,24 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-const SimilarSongItem = ({ imgSrc, title, artist, onClick }) => {
+const SongItem = ({ imgSrc, title, artist, onClick }) => {
   return (
-    <StyledSimilarSongItem onClick={onClick}>
+    <StyledSongItem onClick={onClick}>
       <Image src={imgSrc} alt="song" width={216} height={216} />
       <Wrapper>
         <InformationWrapper>
           <Title>{title}</Title>
           <Artist>{artist}</Artist>
         </InformationWrapper>
-        <Image src={"IconHeart.svg"} width={24} height={24} alt="heart" />
+        <Image src={"/IconHeart.svg"} width={24} height={24} alt="heart" />
       </Wrapper>
-    </StyledSimilarSongItem>
+    </StyledSongItem>
   );
 };
 
-export default SimilarSongItem;
+export default SongItem;
 
-const StyledSimilarSongItem = styled.div`
+const StyledSongItem = styled.div`
   display: flex;
   flex-direction: column;
   width: 216px;

@@ -1,18 +1,18 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-const SimilarArtistItem = ({ imgSrc, name, onClick }) => {
+const ArtistItem = ({ imgSrc, name, onClick }) => {
   return (
-    <StyledSimilarArtistItem onClick={onClick}>
+    <StyledArtistItem onClick={onClick}>
       <StyledImage src={imgSrc} alt="artist" width={216} height={216} />
       <Artist>{name}</Artist>
-    </StyledSimilarArtistItem>
+    </StyledArtistItem>
   );
 };
 
-export default SimilarArtistItem;
+export default ArtistItem;
 
-const StyledSimilarArtistItem = styled.div`
+const StyledArtistItem = styled.div`
   display: flex;
   flex-direction: column;
   width: 216px;

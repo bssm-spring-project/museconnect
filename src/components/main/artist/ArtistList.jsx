@@ -1,37 +1,49 @@
 import artistData from "@/data/artist";
 import Image from "next/image";
 import styled from "styled-components";
-import SimilarArtistItem from "./SimilarArtistItem";
+import ArtistItem from "./ArtistItem";
 import { useRouter } from "next/navigation";
 
-const SimilarArtistList = ({ onClick }) => {
+const ArtistList = ({ onClick }) => {
   const router = useRouter();
 
   return (
-    <StyledSimilarArtistList>
+    <StyledArtistList>
       <Wrapper onClick={onClick}>
+        <Image src={"/arrow2.svg"} width={24} height={24} alt="arrow" />
         <Title>NewJeans와 비슷한 아티스트</Title>
-        <Image src={"IconArrow.svg"} width={24} height={24} alt="arrow" />
       </Wrapper>
       <SongList>
         {artistData.map((artist) => (
-          <SimilarArtistItem
+          <ArtistItem
             key={artist.id}
             onClick={() => {
               router.push("/main/artist/" + artist.id);
             }}
-            imgSrc={artist.name + ".svg"}
+            imgSrc={"/" + artist.name + ".svg"}
             name={artist.name}
           />
         ))}
       </SongList>
-    </StyledSimilarArtistList>
+      <SongList>
+        {artistData.map((artist) => (
+          <ArtistItem
+            key={artist.id}
+            onClick={() => {
+              router.push("/main/artist/" + artist.id);
+            }}
+            imgSrc={"/" + artist.name + ".svg"}
+            name={artist.name}
+          />
+        ))}
+      </SongList>
+    </StyledArtistList>
   );
 };
 
-export default SimilarArtistList;
+export default ArtistList;
 
-const StyledSimilarArtistList = styled.div`
+const StyledArtistList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -59,4 +71,5 @@ const SongList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  margin-bottom: 36px;
 `;
